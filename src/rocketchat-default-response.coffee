@@ -1,22 +1,35 @@
 # Description
-#   Listener middleware to answer when a user says something a bot doesn't recognise.
+#   Middleware to answer when a user says something a bot doesn't recognise
 #
 # Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
+#   DEFAULT_RESPONSE what hubot says when it doesn't say anything else
 #
 # Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
+#   hubot fhqwhgads - <some unknown command>
+#   Sorry, I don't understand that. - <default response>
 #
 # Notes:
-#   <optional notes required for the script>
+#   Set empty response to disable behaviour: `export DEFAULT_RESPONSE=""`
 #
 # Author:
-#   Tim Kinnane[@<org>]
+#   Gary Chapman @ 4thParty
+#   Tim Kinnane @ 4thParty
 
 module.exports = (robot) ->
-  robot.respond /hello/, (msg) ->
-    msg.reply "hello!"
 
-  robot.hear /orly/, ->
-    msg.send "yarly"
+  {DEFAULT_RESPONSE} = process.env
+  defaultResponse = DEFAULT_RESPONSE or "Sorry, I don't understand that."
+
+  # check to see if robot is being addressed directly
+  # don't want it replying to every message in a channel
+  robotIsNamed = (msg) ->
+    r = new RegExp "^(@?#{robot.alias}:?|#{robot.name})", "i"
+    matches = msg.message.text.match(r)
+    return matches != null && matches.length > 1
+
+  robot.catchAll (msg) ->
+
+    if robotIsNamed(msg)
+      msg.reply defaultResponse
+
+    msg.finish()
