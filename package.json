@@ -1,23 +1,24 @@
 {
   "name": "hubot-rocketchat-default-response",
   "description": "Listener middleware to answer when a user says something a bot doesn't recognise.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "Tim Kinnane <tim@nestedcode.com>",
   "license": "MIT",
-  "keywords": ["hubot","hubot-scripts","Rocket.Chat","rocketchat"],
-
+  "keywords": [
+    "hubot",
+    "hubot-scripts",
+    "Rocket.Chat",
+    "rocketchat"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Tim Kinnane/hubot-rocketchat-default-response.git"
   },
-
   "bugs": {
     "url": "https://github.com/Tim Kinnane/hubot-rocketchat-default-response/issues"
   },
-
   "dependencies": {
     "coffee-script": "^1.9.0"
   },
-
   "main": "index.coffee"
 }
