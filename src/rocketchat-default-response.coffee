@@ -29,7 +29,7 @@ module.exports = (robot) ->
 
   robot.catchAll (msg) ->
 
-    if robotIsNamed(msg)
+    if robotIsNamed(msg) and defaultResponse isnt ""
       msg.reply defaultResponse
 
     msg.finish()
