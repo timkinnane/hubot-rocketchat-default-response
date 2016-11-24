@@ -12,10 +12,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/Tim Kinnane/hubot-rocketchat-default-response.git"
+    "url": "https://github.comtimkinnane/hubot-rocketchat-default-response.git"
   },
   "bugs": {
-    "url": "https://github.com/Tim Kinnane/hubot-rocketchat-default-response/issues"
+    "url": "https://github.com/timkinnane/hubot-rocketchat-default-response/issues"
   },
   "dependencies": {
     "coffee-script": "^1.9.0"
